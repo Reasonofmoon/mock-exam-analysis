@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/industry-ac1aee00-e58d-49ca-b405-ffd488802f6c/styles.css">
+<script src="_ds/industry-ac1aee00-e58d-49ca-b405-ffd488802f6c/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="./doc-page.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+:root{--font-heading:"Barlow Condensed","Noto Sans KR",system-ui,sans-serif;--font-body:"Barlow","Noto Sans KR",system-ui,sans-serif;}
+doc-page:not(:defined){visibility:hidden}
+a{color:var(--color-accent-700);text-decoration:none}
+a:hover{color:var(--color-accent-900)}
+
+/* page shell */
+.pg{position:absolute;inset:0;padding:42px 52px 32px;display:flex;flex-direction:column;gap:16px;box-sizing:border-box;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);word-break:keep-all;}
+.pg.grid{background-image:linear-gradient(color-mix(in srgb,var(--color-accent) 7%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--color-accent) 7%,transparent) 1px,transparent 1px);background-size:34.5px 34.5px;}
+.pg.dark{background:var(--color-accent-900);color:var(--color-neutral-100);}
+.hd{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-family:var(--font-heading);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-700);border-bottom:1px solid var(--color-divider);padding-bottom:9px;white-space:nowrap;}
+.dark .hd{color:var(--color-accent-300);border-bottom-color:color-mix(in srgb,var(--color-neutral-100) 22%,transparent);}
+.hd b{font-weight:700;color:var(--color-text);letter-spacing:0.12em;}
+.dark .hd b{color:var(--color-neutral-100);}
+.ft{margin-top:auto;display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--color-divider);padding-top:9px;font-size:10.5px;white-space:nowrap;color:var(--color-neutral-700);}
+.ft span:first-child{font-family:var(--font-heading);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700);}
+.dark .ft{border-top-color:color-mix(in srgb,var(--color-neutral-100) 22%,transparent);color:var(--color-accent-200);}
+.dark .ft span:first-child{color:var(--color-accent-300);}
+
+/* type */
+.kick{font-family:var(--font-heading);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-700);}
+.dark .kick{color:var(--color-accent-300);}
+.h2{margin:0;font-family:var(--font-heading);font-weight:700;font-size:34px;line-height:1.14;letter-spacing:-0.02em;text-wrap:balance;}
+.lede{margin:0;font-size:13px;line-height:1.65;max-width:600px;text-wrap:pretty;color:var(--color-neutral-800);}
+.dark .lede{color:var(--color-accent-200);}
+.titleblock{display:flex;flex-direction:column;gap:7px;}
+.fig{font-family:var(--font-heading);font-size:10.5px;letter-spacing:0.07em;text-transform:uppercase;color:var(--color-accent-700);margin-top:-8px;}
+.dark .fig{color:var(--color-accent-300);}
+
+/* browser-frame screenshot */
+.shot{position:relative;border:1px solid color-mix(in srgb,var(--color-text) 30%,transparent);background:#fff;box-shadow:var(--shadow-md);}
+.dark .shot{border-color:color-mix(in srgb,var(--color-neutral-100) 35%,transparent);box-shadow:0 18px 40px rgba(0,0,0,0.35);}
+.shot-bar{height:18px;display:flex;align-items:center;gap:4px;padding:0 8px;border-bottom:1px solid color-mix(in srgb,var(--color-text) 16%,transparent);background:var(--color-neutral-100);}
+.shot-bar i{width:6px;height:6px;border:1px solid var(--color-neutral-500);display:block;}
+.shot-bar span{margin-left:8px;font-family:ui-monospace,Consolas,monospace;font-size:8.5px;color:var(--color-neutral-600);letter-spacing:0.02em;white-space:nowrap;overflow:hidden;}
+.shot-body{position:relative;overflow:hidden;}
+.shot-body image-slot{position:absolute;inset:0;width:100%;height:100%;}
+.mk{position:absolute;z-index:3;width:19px;height:19px;display:flex;align-items:center;justify-content:center;background:var(--color-accent-700);color:#fff;font-family:var(--font-heading);font-weight:700;font-size:11px;outline:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.25);pointer-events:none;}
+
+/* blocks */
+.plate{padding:14px 18px;}
+.feat{display:flex;flex-direction:column;gap:3px;}
+.feat b{font-family:var(--font-heading);font-weight:700;font-size:14.5px;line-height:1.25;}
+.feat span{font-size:11.5px;line-height:1.55;color:var(--color-neutral-800);}
+.num{font-family:var(--font-heading);font-weight:700;font-size:26px;line-height:1;color:var(--color-accent);}
+.legend{display:flex;flex-direction:column;gap:12px;}
+.legend .row{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start;}
+.legend .row > .mk{position:static;display:flex;align-items:center;justify-content:center;outline:none;box-shadow:none;color:#fff;font-size:11px;line-height:1;margin-top:1px;}
+.legend b{display:block;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.3;}
+.legend span{display:block;font-size:11.5px;line-height:1.55;color:var(--color-neutral-800);}
+ul.ticks{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;}
+ul.ticks li{position:relative;padding-left:14px;font-size:11.5px;line-height:1.5;}
+ul.ticks li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border:1.5px solid var(--color-accent);}
+ul.ticks.x li::before{border-color:var(--color-neutral-500);background:transparent;transform:rotate(45deg);}
+.pref{font-family:var(--font-heading);font-size:10.5px;letter-spacing:0.08em;color:var(--color-accent-700);}
+.spec{width:100%;border-collapse:collapse;font-size:11.5px;}
+.spec th{text-align:left;font-family:var(--font-heading);font-weight:600;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);padding:7px 10px 7px 0;border-bottom:1px solid var(--color-divider);vertical-align:top;white-space:nowrap;width:118px;}
+.spec td{padding:9px 0;border-bottom:1px solid var(--color-divider);line-height:1.5;}
+.pkg{display:flex;flex-direction:column;gap:8px;padding:16px 16px 18px;}
+.pkg .tier{font-family:var(--font-heading);font-size:11px;letter-spacing:0.14em;color:var(--color-accent-700);}
+.pkg h3{margin:0;font-family:var(--font-heading);font-weight:700;font-size:18px;line-height:1.2;}
+.pkg p{margin:0;font-size:11px;line-height:1.5;color:var(--color-neutral-700);min-height:33px;}
+.pkg.rec{background:var(--color-accent-100);}
+.badge{align-self:flex-start;font-family:var(--font-heading);font-size:10px;letter-spacing:0.12em;padding:2px 8px;background:var(--color-accent-700);color:#fff;}
+.faq{display:flex;flex-direction:column;gap:3px;}
+.faq b{font-family:var(--font-heading);font-weight:700;font-size:13.5px;}
+.faq span{font-size:11.5px;line-height:1.55;color:var(--color-neutral-800);}
+.node{display:flex;flex-direction:column;gap:4px;padding:10px 10px 12px;position:relative;}
+.node b{font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;}
+.node span{font-size:10.5px;line-height:1.45;color:var(--color-neutral-700);}
+.arrow{display:flex;align-items:center;justify-content:center;color:var(--color-accent);}
+.chip{font-family:var(--font-heading);font-size:11px;letter-spacing:0.04em;padding:3px 9px;border:1px solid color-mix(in srgb,var(--color-neutral-100) 30%,transparent);color:var(--color-accent-200);white-space:nowrap;}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));}
+.flow > div{padding:10px 12px;border:1px solid var(--color-divider);margin-left:-1px;display:flex;flex-direction:column;gap:3px;}
+.flow b{font-family:var(--font-heading);font-weight:700;font-size:13.5px;}
+.flow span{font-size:10.5px;line-height:1.45;color:var(--color-neutral-700);}
+
+.phone{border:1px solid color-mix(in srgb,var(--color-text) 45%,transparent);padding:6px 4px 10px;background:#1d1f20;box-shadow:var(--shadow-md);}
+.dark .phone{border-color:color-mix(in srgb,var(--color-neutral-100) 45%,transparent);box-shadow:0 18px 40px rgba(0,0,0,0.45);}
+.phone-body{position:relative;overflow:hidden;background:#fff;}
+.phone-body image-slot{position:absolute;inset:0;width:100%;height:100%;}
+.cell{padding:11px 14px;border-right:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);display:flex;flex-direction:column;gap:4px;}
+.cell b{font-family:var(--font-heading);font-size:14.5px;}
+.cell span:last-child{font-size:11px;line-height:1.5;color:var(--color-neutral-700);}
+
+.paper{background:#fff;border:1px solid color-mix(in srgb,var(--color-text) 22%,transparent);box-shadow:var(--shadow-md);}
+.dark .paper{box-shadow:0 18px 40px rgba(0,0,0,0.45);border-color:color-mix(in srgb,var(--color-neutral-100) 40%,transparent);}
+.paper-body{position:relative;overflow:hidden;}
+.paper-body image-slot{position:absolute;inset:0;width:100%;height:100%;}
+</style>
+<script>
+/* filled slots keep their src image; clear the empty-state ring once the page has settled */
+(function(){function mark(){document.querySelectorAll('image-slot[src]').forEach(function(s){if(!s.hasAttribute('data-filled'))s.setAttribute('data-filled','');});}
+window.addEventListener('load',function(){setTimeout(mark,200);setTimeout(mark,1200);});})();
+</script>
+</helmet>
+<doc-page size="a4">
+
+<!-- ============ 01 COVER ============ -->
+<section class="page" id="p1" data-screen-label="01 Cover">
+<div class="pg dark">
+<div class="hd"><span><b>MOCK EXAM ANALYSIS</b> &nbsp;·&nbsp; 학원 앱 &amp; 서비스 카탈로그 No.07</span><span>2026 Edition · 01 / 08</span></div>
+<span class="tag tag-outline" style="align-self:flex-start;font-size:11.5px;white-space:nowrap;color:var(--color-accent-200);border-color:color-mix(in srgb,var(--color-accent-200) 60%,transparent);">영어 모의고사 45문항 채점 · 등급 분포 · 회차별 추세 · 문항별 정답률</span>
+<h1 style="margin:0;font-family:var(--font-heading);font-weight:700;font-size:50px;line-height:1.1;letter-spacing:-0.03em;">모의고사 채점부터<br><span style="color:var(--color-accent-300);">반 전체 분석까지 한 화면</span></h1>
+<p class="lede" style="font-size:14px;max-width:600px;">학생마다 45문항의 정답·오답을 누르거나 CSV로 한 번에 올리면, 2점·3점 배점으로 점수와 등급이 계산되고 대시보드에 등급 분포, 회차별 평균, 문항별 정답률, 학생 목록이 정리됩니다. 엑셀 수식 없이 시험 다음 날 상담 자료가 준비됩니다.</p>
+<div style="position:relative;margin-top:6px;">
+<div class="paper" style="height:392px;"><div class="paper-body" style="height:100%;"><image-slot id="me-hero" shape="rect" fit="cover" src="assets-mock/dash-top.png" placeholder="성적 분석 대시보드"></image-slot></div></div>
+</div>
+<div class="fig" style="margin-top:2px;">Fig. 01 — 성적 분석 대시보드. 예시 학원 ‘데모 영어학원’ · 고2 3회차 25건</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;max-width:560px;"><span class="chip">45문항 O/X</span><span class="chip">2점·3점 배점</span><span class="chip">자동 등급</span><span class="chip">CSV 일괄 업로드</span><span class="chip">회차별 추세</span><span class="chip">CSV 내보내기</span></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid color-mix(in srgb,var(--color-neutral-100) 22%,transparent);margin-top:auto;">
+<div style="padding:12px 14px 0 0;display:flex;flex-direction:column;gap:3px;"><span style="font-family:var(--font-heading);font-weight:700;font-size:28px;line-height:1;color:var(--color-neutral-100);">45문항</span><span style="font-size:11px;line-height:1.45;color:var(--color-accent-200);">버튼 한 번으로<br>정답 · 오답 표시</span></div>
+<div style="padding:12px 14px 0;border-left:1px solid color-mix(in srgb,var(--color-neutral-100) 22%,transparent);display:flex;flex-direction:column;gap:3px;"><span style="font-family:var(--font-heading);font-weight:700;font-size:28px;line-height:1;color:var(--color-neutral-100);">2·3점</span><span style="font-size:11px;line-height:1.45;color:var(--color-accent-200);">문항별 배점을 반영한<br>100점 만점 점수</span></div>
+<div style="padding:12px 14px 0;border-left:1px solid color-mix(in srgb,var(--color-neutral-100) 22%,transparent);display:flex;flex-direction:column;gap:3px;"><span style="font-family:var(--font-heading);font-weight:700;font-size:28px;line-height:1;color:var(--color-neutral-100);">4차트</span><span style="font-size:11px;line-height:1.45;color:var(--color-accent-200);">요약 · 등급 분포 ·<br>회차 추세 · 정답률</span></div>
+<div style="padding:12px 0 0 14px;border-left:1px solid color-mix(in srgb,var(--color-neutral-100) 22%,transparent);display:flex;flex-direction:column;gap:3px;"><span style="font-family:var(--font-heading);font-weight:700;font-size:28px;line-height:1;color:var(--color-neutral-100);">1파일</span><span style="font-size:11px;line-height:1.45;color:var(--color-accent-200);">CSV로 한 번에 올리고<br>CSV로 내보내기</span></div>
+</div>
+<div class="ft" style="margin-top:14px;"><span>도입 문의</span><span>010-2998-3377 · soundfury37@gmail.com</span></div>
+</div>
+</section>
+
+<!-- ============ 02 OVERVIEW ============ -->
+<section class="page" id="p2" data-screen-label="02 Overview">
+<div class="pg grid">
+<div class="hd"><span><b>00</b> &nbsp;·&nbsp; 한눈에 보기</span><span>02 / 08</span></div>
+<div class="titleblock">
+<span class="kick">Why 모의고사 분석</span>
+<h2 class="h2">“이번 모의고사, 우리 반은 어땠나요?”에<br>숫자와 그래프로 답합니다</h2>
+<p class="lede">모의고사가 끝나면 학생별 채점, 등급 계산, 반 평균, 많이 틀린 문항 정리까지 손이 많이 갑니다. 모의고사 분석은 문항별 정답 여부만 넣으면 나머지 계산과 그래프를 맡습니다.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<span class="kick">네 단계로 끝나는 흐름</span>
+<div class="flow" style="grid-template-columns:repeat(4,minmax(0,1fr));">
+<div><span class="pref">01 · P.07</span><b>학원 등록</b><span>학원 이름 한 줄로 시작</span></div>
+<div><span class="pref">02 · P.03–04</span><b>답안 입력</b><span>45문항 클릭 또는 CSV 업로드</span></div>
+<div><span class="pref">03 · 자동</span><b>점수 · 등급</b><span>2점·3점 배점 합산 후 등급</span></div>
+<div><span class="pref">04 · P.05–06</span><b>대시보드</b><span>분포 · 추세 · 정답률 · 목록</span></div>
+</div>
+</div>
+<div class="shot blueprint">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="shot-bar"><i></i><i></i><i></i><span>홈 · 주요 기능</span></div>
+<div class="shot-body" style="aspect-ratio:1280/480;"><image-slot id="me-feat" shape="rect" fit="cover" src="assets-mock/home-features.png" placeholder="주요 기능"></image-slot></div>
+</div>
+<div class="fig" style="margin-top:-6px;">Fig. 02 — 앱 홈의 주요 기능: CSV 일괄 업로드 · 성적 분석 · 추세 파악 · 문항 분석</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<span class="kick">화면 구성 (5개 메뉴)</span>
+<div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--color-divider);border-left:1px solid var(--color-divider);">
+<div class="cell"><span class="pref">01</span><b>홈</b><span>현재 학원 · 등록 학생 수 · 바로가기</span></div>
+<div class="cell"><span class="pref">02</span><b>학원 등록</b><span>학원명 설정</span></div>
+<div class="cell"><span class="pref">03</span><b>학생 추가</b><span>이름 · 학년 · 회차 · 45문항</span></div>
+<div class="cell"><span class="pref">04</span><b>CSV 업로드</b><span>끌어다 놓기 · 형식 안내</span></div>
+<div class="cell"><span class="pref">05</span><b>대시보드</b><span>요약 · 차트 · 학생 목록 · 내보내기</span></div>
+</div>
+</div>
+<p style="margin:0;font-size:10px;line-height:1.5;color:var(--color-neutral-600);">화면은 예시 학원 ‘데모 영어학원’에 예시 학생 9명(고2)의 3·6·9월 모의고사 결과 25건을 넣어 캡처했습니다. 학생 이름과 점수는 모두 예시입니다.</p>
+<div class="ft"><span>모의고사 분석 · 학원 앱 &amp; 서비스 카탈로그</span><span>010-2998-3377 · soundfury37@gmail.com</span></div>
+</div>
+</section>
+
+<!-- ============ 03 MANUAL INPUT ============ -->
+<section class="page" id="p3" data-screen-label="03 Input">
+<div class="pg">
+<div class="hd"><span><b>01</b> &nbsp;·&nbsp; 학생 추가 · 45문항 입력</span><span>03 / 08</span></div>
+<div class="titleblock">
+<h2 class="h2">문항 번호를 누르면 정답, 한 번 더 누르면 오답</h2>
+<p class="lede">학생 이름, 학년, 모의고사 회차를 적고 45개 문항 버튼으로 정답(초록)과 오답(흰색)을 표시합니다. 각 번호 아래 작은 버튼으로 3점 문항(보라)을 지정하면, 저장할 때 점수와 등급이 바로 계산됩니다.</p>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:22px;align-items:start;">
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="shot blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="shot-bar"><i></i><i></i><i></i><span>학생 데이터 입력</span></div>
+<div class="shot-body" style="aspect-ratio:1280/1130;"><image-slot id="me-input" shape="rect" fit="cover" src="assets-mock/input.png" placeholder="학생 데이터 입력"></image-slot>
+<span class="mk" style="left:12%;top:33%;">1</span>
+<span class="mk" style="left:14%;top:47%;">2</span>
+<span class="mk" style="left:29%;top:66%;">3</span>
+<span class="mk" style="left:12%;top:90%;">4</span>
+</div></div>
+<div class="fig" style="margin-top:-6px;">Fig. 03 — 예시 학생 ‘서지안’ · 9월 모의고사 · 오답 8개 → 80점 · 2등급</div>
+</div>
+<div class="legend">
+<div class="row"><span class="mk">1</span><div><b>학생 정보</b><span>이름, 학년, 모의고사 회차(예: 9월 모의고사)</span></div></div>
+<div class="row"><span class="mk">2</span><div><b>정답 · 오답</b><span>번호를 눌러 초록 ✓(정답)과 흰색 ✕(오답)을 바꿈</span></div></div>
+<div class="row"><span class="mk">3</span><div><b>3점 문항</b><span>번호 아래 2pt 버튼을 누르면 3pt(보라)로 바뀜</span></div></div>
+<div class="row"><span class="mk">4</span><div><b>학생 추가</b><span>저장과 함께 ‘점수 · 등급’ 알림, 대시보드에 반영</span></div></div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:1px solid var(--color-divider);padding-top:12px;">
+<div class="feat"><b>배점</b><span>정답 문항의 2점·3점을 더해 100점 만점으로 계산 (예: 2점 35문항 + 3점 10문항)</span></div>
+<div class="feat"><b>등급</b><span>점수에 따라 1~9등급 자동 표시 (수능 영어 절대평가처럼 90점 이상 1등급, 10점 간격)</span></div>
+<div class="feat"><b>확인 알림</b><span>“서지안 학생이 추가되었습니다. (점수: 80점, 2등급)”</span></div>
+</div>
+<div class="ft"><span>모의고사 분석 · 학원 앱 &amp; 서비스 카탈로그</span><span>010-2998-3377 · soundfury37@gmail.com</span></div>
+</div>
+</section>
+
+<!-- ============ 04 CSV ============ -->
+<section class="page" id="p4" data-screen-label="04 CSV">
+<div class="pg">
+<div class="hd"><span><b>02</b> &nbsp;·&nbsp; CSV 일괄 업로드</span><span>04 / 08</span></div>
+<div class="titleblock">
+<h2 class="h2">반 전체 결과는 CSV 파일 하나로</h2>
+<p class="lede">엑셀에서 학원명, 이름, 학년, 모의고사 회차, 실제점수와 45개 문항의 O/X를 한 줄에 한 학생씩 적어 CSV로 저장한 뒤 끌어다 놓으면 됩니다. 문항 제목에 ‘3점’이 들어 있으면 3점 문항으로 인식합니다.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;">
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="shot blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="shot-bar"><i></i><i></i><i></i><span>CSV 파일 업로드</span></div>
+<div class="shot-body" style="aspect-ratio:1280/900;"><image-slot id="me-csv" shape="rect" fit="cover" src="assets-mock/csv.png" placeholder="CSV 업로드"></image-slot></div></div>
+<div class="fig" style="margin-top:-6px;">Fig. 04 — 끌어다 놓기 영역과 CSV 형식 안내</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="shot blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="shot-bar"><i></i><i></i><i></i><span>업로드 직후 대시보드</span></div>
+<div class="shot-body" style="aspect-ratio:1280/900;"><image-slot id="me-csvdone" shape="rect" fit="cover" src="assets-mock/csv-done.png" placeholder="업로드 완료"></image-slot></div></div>
+<div class="fig" style="margin-top:-6px;">Fig. 05 — “24명의 학생 데이터가 추가되었습니다.” 후 대시보드로 이동</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<span class="kick">CSV 형식</span>
+<table class="spec">
+<tr><th>필수 열</th><td>학원명, 이름, 학년, 모의고사 회차, 실제점수</td></tr>
+<tr><th>문항 열</th><td>45개 문항의 O/X 결과 (예: 1번, 2번, … 45번)</td></tr>
+<tr><th>3점 표시</th><td>열 이름에 “3점”, “[3점]”, “(3점)”, “3pt” 포함 (예: 21번(3점))</td></tr>
+<tr><th>파일</th><td>.csv 1개씩 업로드</td></tr>
+</table>
+</div>
+<div style="background:var(--color-neutral-900, #1a1a1a);color:#e8e8e8;font-family:ui-monospace,Consolas,monospace;font-size:10.5px;line-height:1.6;padding:12px 14px;border-radius:4px;white-space:pre;overflow:hidden;">학원명,이름,학년,모의고사 회차,실제점수,1번,2번,…,21번(3점),…,45번
+데모 영어학원,김하늘,고2,3월 모의고사,81,O,O,…,X,…,O</div>
+<div class="ft"><span>모의고사 분석 · 학원 앱 &amp; 서비스 카탈로그</span><span>010-2998-3377 · soundfury37@gmail.com</span></div>
+</div>
+</section>
+
+<!-- ============ 05 DASHBOARD ============ -->
+<section class="page" id="p5" data-screen-label="05 Dashboard">
+<div class="pg">
+<div class="hd"><span><b>03</b> &nbsp;·&nbsp; 성적 분석 대시보드</span><span>05 / 08</span></div>
+<div class="titleblock">
+<h2 class="h2">입력이 끝나면 대시보드가 바로 그려집니다</h2>
+<p class="lede">총 학생 수, 평균 점수, 최고 점수, 회차 수가 맨 위 카드에 나오고, 그 아래 등급 분포 막대와 회차별 평균 점수 꺾은선이 이어집니다. 새 학생을 추가하거나 CSV를 올릴 때마다 다시 계산됩니다.</p>
+</div>
+<div class="shot blueprint">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="shot-bar"><i></i><i></i><i></i><span>학생 추가 → 45문항 입력 → 대시보드</span></div>
+<div class="shot-body" style="aspect-ratio:1000/883;"><image-slot id="me-flow" shape="rect" fit="cover" src="assets-mock/input-flow.gif" placeholder="입력 흐름 GIF"></image-slot></div>
+</div>
+<div class="fig">Fig. 06 — 문항 입력부터 대시보드까지 (GIF · 인쇄본은 대표 프레임)</div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--color-divider);border-left:1px solid var(--color-divider);">
+<div class="cell"><b>25명</b><span>총 학생 수 (입력 건수)</span></div>
+<div class="cell"><b>66점</b><span>평균 점수</span></div>
+<div class="cell"><b>95점</b><span>최고 점수</span></div>
+<div class="cell"><b>3개</b><span>회차 수 (3·6·9월)</span></div>
+</div>
+<p style="margin:0;font-size:10px;line-height:1.5;color:var(--color-neutral-600);">예시 데이터 기준 값입니다. 회차별 평균은 3월 60점 → 6월 69점 → 9월 69점으로 표시됩니다.</p>
+<div class="ft"><span>모의고사 분석 · 학원 앱 &amp; 서비스 카탈로그</span><span>010-2998-3377 · soundfury37@gmail.com</span></div>
+</div>
+</section>
+
+<!-- ============ 06 QUESTIONS + LIST ============ -->
+<section class="page" id="p6" data-screen-label="06 Questions">
+<div class="pg">
+<div class="hd"><span><b>04</b> &nbsp;·&nbsp; 문항별 정답률 · 학생 목록</span><span>06 / 08</span></div>
+<div class="titleblock">
+<h2 class="h2">많이 틀린 문항과 학생별 결과를 한 번에</h2>
+<p class="lede">1번부터 45번까지 문항별 정답률을 막대로 보여 줘, 반 전체가 약한 유형을 바로 찾을 수 있습니다. 아래 학생 목록에는 이름, 학년, 회차, 점수, 등급이 정리되고 ‘데이터 내보내기’로 CSV 파일을 받습니다.</p>
+</div>
+<div class="shot blueprint">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="shot-bar"><i></i><i></i><i></i><span>문항별 정답률</span></div>
+<div class="shot-body" style="aspect-ratio:1280/470;"><image-slot id="me-q" shape="rect" fit="cover" src="assets-mock/dash-questions.png" placeholder="문항별 정답률"></image-slot></div>
+</div>
+<div class="fig">Fig. 07 — 예시 데이터에서는 21·31번(정답률 40%)처럼 낮은 문항이 바로 보입니다</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:22px;align-items:start;">
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="shot blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="shot-bar"><i></i><i></i><i></i><span>학생 목록</span></div>
+<div class="shot-body" style="aspect-ratio:1280/780;"><image-slot id="me-list" shape="rect" fit="cover" src="assets-mock/dash-list.png" placeholder="학생 목록"></image-slot></div></div>
+<div class="fig" style="margin-top:-6px;">Fig. 08 — 학생별 회차 · 점수 · 등급</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<span class="kick">내보내기 CSV</span>
+<table class="spec">
+<tr><th>열</th><td>학생명, 학년, 모의고사 회차, 점수, 등급</td></tr>
+<tr><th>파일명</th><td>학원명_성적분석_날짜.csv</td></tr>
+<tr><th>인코딩</th><td>엑셀에서 한글이 깨지지 않는 UTF-8(BOM)</td></tr>
+</table>
+</div>
+</div>
+<div class="ft"><span>모의고사 분석 · 학원 앱 &amp; 서비스 카탈로그</span><span>010-2998-3377 · soundfury37@gmail.com</span></div>
+</div>
+</section>
+
+<!-- ============ 07 START / HOME ============ -->
+<section class="page" id="p7" data-screen-label="07 Start">
+<div class="pg">
+<div class="hd"><span><b>05</b> &nbsp;·&nbsp; 시작하기 · 홈</span><span>07 / 08</span></div>
+<div class="titleblock">
+<h2 class="h2">학원 이름 한 줄이면 시작합니다</h2>
+<p class="lede">처음에는 학원 이름만 등록합니다. 등록한 이름은 상단 배지, 홈, 대시보드 제목, 내보내기 파일명에 함께 쓰입니다. 홈에서는 현재 학원과 등록 학생 수를 보고 학생 추가, CSV 업로드, 대시보드로 바로 이동합니다.</p>
+</div>
+<div class="shot blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="shot-bar"><i></i><i></i><i></i><span>홈</span></div>
+<div class="shot-body" style="aspect-ratio:1280/820;"><image-slot id="me-home" shape="rect" fit="cover" src="assets-mock/home-hero.png" placeholder="홈"></image-slot></div></div>
+<div class="fig" style="margin-top:-6px;">Fig. 09 — 현재 학원 ‘데모 영어학원’ · 등록 학생 25 · 학생 추가 / CSV 업로드 / 대시보드 바로가기</div>
+<div style="display:grid;grid-template-columns:250px minmax(0,1fr);gap:22px;align-items:start;">
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="shot blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="shot-bar"><i></i><i></i><i></i><span>학원 등록</span></div>
+<div class="shot-body" style="aspect-ratio:600/520;"><image-slot id="me-acad" shape="rect" fit="cover" src="assets-mock/academy-card.png" placeholder="학원 등록"></image-slot></div></div>
+<div class="fig" style="margin-top:-6px;">Fig. 10 — 학원명 입력 후 ‘등록하고 시작하기’</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<span class="kick">이럴 때 씁니다</span>
+<div style="display:grid;grid-template-columns:minmax(0,1fr);border-top:1px solid var(--color-divider);border-left:1px solid var(--color-divider);">
+<div class="cell"><span class="pref">시험 다음 날</span><b>반 결과 정리</b><span>CSV 한 번으로 점수 · 등급 · 분포 확인</span></div>
+<div class="cell"><span class="pref">수업 계획</span><b>약한 문항 찾기</b><span>정답률 낮은 문항을 다음 수업 복습으로</span></div>
+<div class="cell"><span class="pref">학부모 상담</span><b>회차별 변화</b><span>3월 → 6월 → 9월 평균 흐름과 학생 등급</span></div>
+</div>
+</div>
+</div>
+<div class="ft"><span>모의고사 분석 · 학원 앱 &amp; 서비스 카탈로그</span><span>010-2998-3377 · soundfury37@gmail.com</span></div>
+</div>
+</section>
+
+<!-- ============ 08 SPECS / CONTACT ============ -->
+<section class="page" id="p8" data-screen-label="08 Specs & contact">
+<div class="pg">
+<div class="hd"><span><b>06</b> &nbsp;·&nbsp; 사양 · 문의</span><span>08 / 08</span></div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;">
+<div style="display:flex;flex-direction:column;gap:8px;">
+<span class="kick">사양</span>
+<table class="spec">
+<tr><th>형태</th><td>웹앱 (React · Vite) · PC 브라우저 화면 기준</td></tr>
+<tr><th>시험 형식</th><td>45문항 · 2점/3점 배점 · 100점 만점</td></tr>
+<tr><th>입력</th><td>화면에서 문항별 클릭 · CSV 업로드</td></tr>
+<tr><th>분석</th><td>요약 카드 4종 · 등급 분포 · 회차별 평균 · 문항별 정답률 · 학생 목록</td></tr>
+<tr><th>출력</th><td>CSV 내보내기 (학생명 · 학년 · 회차 · 점수 · 등급)</td></tr>
+<tr><th>등급 기준</th><td>90점 이상 1등급, 이후 10점 간격 (영어 절대평가 방식)</td></tr>
+</table>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<span class="kick">자주 묻는 질문</span>
+<div class="faq"><b>OMR 카드가 없어도 되나요?</b><span>네. 채점한 답안지를 보고 문항 번호만 눌러 입력합니다.</span></div>
+<div class="faq"><b>회차마다 3점 문항이 다르면?</b><span>학생 입력 화면이나 CSV 열 이름에서 회차별로 따로 지정합니다.</span></div>
+<div class="faq"><b>이미 엑셀로 관리하고 있는데요?</b><span>정해진 열 순서로 CSV 저장만 하면 그대로 올라갑니다.</span></div>
+<div class="faq"><b>휴대폰에서도 되나요?</b><span>현재는 PC 화면에 맞춰져 있습니다. 모바일 화면은 상담 시 일정 안내.</span></div>
+</div>
+</div>
+
+<div style="margin-top:auto;margin-left:-52px;margin-right:-52px;margin-bottom:-32px;background:var(--color-accent-900);color:var(--color-neutral-100);padding:30px 52px 28px;display:flex;flex-direction:column;gap:16px;">
+<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:34px;align-items:end;">
+<div style="display:flex;flex-direction:column;gap:8px;">
+<span class="kick" style="color:var(--color-accent-300);">시연 요청 · 도입 문의</span>
+<span style="font-family:var(--font-heading);font-weight:700;font-size:28px;line-height:1.15;">다음 모의고사부터<br>채점과 분석을 한 번에 끝내세요</span>
+<span style="font-family:var(--font-heading);font-weight:700;font-size:34px;line-height:1;margin-top:4px;">010-2998-3377</span>
+<span style="font-size:13.5px;color:var(--color-accent-200);">soundfury37@gmail.com · 상담 후 맞춤 견적</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+<div class="blueprint" style="width:124px;height:124px;background:#fff;padding:8px;box-sizing:border-box;"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><image-slot id="me-qr" shape="rect" fit="contain" src="assets-mock/qr-contact.svg" placeholder="QR"></image-slot></div>
+<span style="font-family:var(--font-heading);font-size:10.5px;letter-spacing:0.1em;color:var(--color-accent-300);text-align:center;">QR · 메일로 시연 요청</span>
+</div>
+</div>
+<div style="display:flex;justify-content:space-between;gap:16px;border-top:1px solid color-mix(in srgb,var(--color-neutral-100) 22%,transparent);padding-top:10px;font-size:10px;color:var(--color-accent-300);white-space:nowrap;"><span style="font-family:var(--font-heading);letter-spacing:0.1em;text-transform:uppercase;">모의고사 분석 · 학원 앱 &amp; 서비스 카탈로그 No.07</span><span>화면 속 학원 · 학생 정보와 점수는 예시입니다</span></div>
+</div>
+</div>
+</section>
+
+</doc-page>
+
+
+
+
+</x-dc>
+</body>
+</html>
